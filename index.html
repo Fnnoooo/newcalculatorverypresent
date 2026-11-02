@@ -874,6 +874,7 @@
 </head>
         <body>${code}
 
+
 </body>
         </html>
       `);
@@ -1103,27 +1104,13 @@
         <button onclick="switchTab('hub')" id="nav-hub" class="nav-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all flex items-center gap-2 bg-brand-600 text-white shadow-md">
           <i class="fa-solid fa-shapes"></i> Game Hub
         </button>
-        <button onclick="switchTab('blockblast')" id="nav-blockblast" class="nav-btn px-4 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white transition-all flex items-center gap-2">
-          <i class="fa-solid fa-cubes"></i> Block Blast
-        </button>
-        <button onclick="switchTab('tictactoe')" id="nav-tictactoe" class="nav-btn px-4 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white transition-all flex items-center gap-2">
-          <i class="fa-solid fa-xmark"></i> Tic-Tac-Toe
-        </button>
-        <button onclick="switchTab('snake')" id="nav-snake" class="nav-btn px-4 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white transition-all flex items-center gap-2">
-          <i class="fa-solid fa-staff-snake"></i> Neon Snake
-        </button>
-        <button onclick="switchTab('space')" id="nav-space" class="nav-btn px-4 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white transition-all flex items-center gap-2">
-          <i class="fa-solid fa-rocket"></i> Starship 3D
-        </button>
-        <button onclick="switchTab('arena')" id="nav-arena" class="nav-btn px-4 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white transition-all flex items-center gap-2">
-          <i class="fa-solid fa-crosshairs"></i> Project Arena
-        </button>
-        <button onclick="switchTab('zombie')" id="nav-zombie" class="nav-btn px-4 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white transition-all flex items-center gap-2">
-          <i class="fa-solid fa-skull"></i> 3D Zombie Shooter
-        </button>
-        <button onclick="switchTab('howtowin')" id="nav-howtowin" class="nav-btn px-4 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white transition-all flex items-center gap-2">
-          <i class="fa-solid fa-crown"></i> How to Win Multiplayer
-        </button>
+        <!-- Hidden from top navigation; game remains in Game Hub. -->
+        <!-- Hidden from top navigation; game remains in Game Hub. -->
+        <!-- Hidden from top navigation; game remains in Game Hub. -->
+        <!-- Hidden from top navigation; game remains in Game Hub. -->
+        <!-- Hidden from top navigation; game remains in Game Hub. -->
+        <!-- Hidden from top navigation; game remains in Game Hub. -->
+        <!-- Hidden from top navigation; game remains in Game Hub. -->
         <button onclick="switchTab('embed')" id="nav-embed" class="nav-btn px-4 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white transition-all flex items-center gap-2">
           <i class="fa-solid fa-code"></i> Embed Portal
         </button>
@@ -1147,13 +1134,13 @@
   <!-- Mobile Nav Bar -->
   <nav class="md:hidden flex items-center justify-around bg-slate-900 border-b border-slate-800 p-2 overflow-x-auto">
     <button onclick="switchTab('hub')" id="mnav-hub" class="text-xs font-semibold px-3 py-2 rounded-md bg-brand-600 text-white whitespace-nowrap">Hub</button>
-    <button onclick="switchTab('blockblast')" id="mnav-blockblast" class="text-xs font-semibold px-3 py-2 rounded-md text-slate-300 whitespace-nowrap">Block Blast</button>
-    <button onclick="switchTab('tictactoe')" id="mnav-tictactoe" class="text-xs font-semibold px-3 py-2 rounded-md text-slate-300 whitespace-nowrap">Tic-Tac-Toe</button>
-    <button onclick="switchTab('snake')" id="mnav-snake" class="text-xs font-semibold px-3 py-2 rounded-md text-slate-300 whitespace-nowrap">Neon Snake</button>
-    <button onclick="switchTab('space')" id="mnav-space" class="text-xs font-semibold px-3 py-2 rounded-md text-slate-300 whitespace-nowrap">Starship 3D</button>
-    <button onclick="switchTab('arena')" id="mnav-arena" class="text-xs font-semibold px-3 py-2 rounded-md text-slate-300 whitespace-nowrap">Project Arena</button>
-    <button onclick="switchTab('zombie')" id="mnav-zombie" class="text-xs font-semibold px-3 py-2 rounded-md text-slate-300 whitespace-nowrap">3D Zombie Shooter</button>
-    <button onclick="switchTab('howtowin')" id="mnav-howtowin" class="text-xs font-semibold px-3 py-2 rounded-md text-slate-300 whitespace-nowrap">How to Win Multiplayer</button>
+    <!-- Hidden from top navigation; game remains in Game Hub. -->
+    <!-- Hidden from top navigation; game remains in Game Hub. -->
+    <!-- Hidden from top navigation; game remains in Game Hub. -->
+    <!-- Hidden from top navigation; game remains in Game Hub. -->
+    <!-- Hidden from top navigation; game remains in Game Hub. -->
+    <!-- Hidden from top navigation; game remains in Game Hub. -->
+    <!-- Hidden from top navigation; game remains in Game Hub. -->
     <button onclick="switchTab('embed')" id="mnav-embed" class="text-xs font-semibold px-3 py-2 rounded-md text-slate-300 whitespace-nowrap">Embed Portal</button>
     <button onclick="switchTab('tube')" id="mnav-tube" class="text-xs font-semibold px-3 py-2 rounded-md text-slate-300 whitespace-nowrap"><i class="fa-brands fa-youtube mr-1"></i>Tube</button>
     <button onclick="switchTab('nexusai')" id="mnav-nexusai" class="text-xs font-semibold px-3 py-2 rounded-md text-slate-300 whitespace-nowrap"><i class="fa-solid fa-robot mr-1"></i>AI</button>
@@ -1195,11 +1182,12 @@
           <h3 class="text-xl font-bold text-white flex items-center gap-2">
             <i class="fa-solid fa-fire text-amber-500"></i> Arcade Selection
           </h3>
-          <span class="text-xs text-slate-400">9 Titles Available</span>
+          <span class="text-xs text-slate-400">10 Titles Available</span>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           
+          <div class="group relative rounded-2xl bg-slate-900 border border-slate-800 hover:border-purple-500/50 overflow-hidden flex flex-col"><div class="h-44 bg-gradient-to-br from-indigo-950 via-purple-950 to-slate-900 flex items-center justify-center text-7xl text-white">♞</div><div class="p-5 flex-1 flex flex-col justify-between gap-4"><div><span class="text-xs text-purple-300 font-bold">Strategy · AI or 2 Player</span><h4 class="text-lg font-bold text-white mt-1">Chess Arena</h4><p class="text-xs text-slate-400 mt-1">Play chess with move hints, undo, themes and an AI opponent.</p></div><button onclick="switchTab('chess')" class="w-full py-2.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-semibold text-xs">Launch Game →</button></div></div>
           <!-- Card 1: Block Blast -->
           <div class="group relative rounded-2xl bg-slate-900 border border-slate-800 hover:border-indigo-500/50 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 flex flex-col">
             <div class="h-44 bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900 p-6 flex items-center justify-center relative overflow-hidden">
@@ -1632,6 +1620,8 @@
     </section>
 
 
+    <section id="view-chess" class="tab-view hidden flex-col w-full rounded-2xl overflow-hidden border border-purple-500/30 bg-slate-950"><div class="flex items-center justify-between gap-3 p-3 bg-slate-900 border-b border-purple-500/20"><h3 class="text-sm font-bold text-purple-200">♞ Chess Arena</h3><button onclick="switchTab('hub')" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold">Back to Hub</button></div><iframe id="chess-arena-frame" title="Chess Arena" style="width:100%;height:clamp(900px,110vh,1250px);border:0;background:#0b1223" scrolling="auto" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;&lt;title&gt;Chess Arena&lt;/title&gt;&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js&quot;&gt;&lt;/script&gt;&lt;style&gt;*{box-sizing:border-box}body{margin:0;background:#0b1223;color:#f8fafc;font:15px system-ui,sans-serif}main{width:100%;max-width:1100px;margin:auto;padding:18px}header{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;padding:14px;background:#18243a;border-radius:15px;margin-bottom:14px}.arena{display:grid;grid-template-columns:minmax(0,1fr) 230px;gap:15px}.board{width:100%;max-width:650px;aspect-ratio:1;display:grid;grid-template-columns:repeat(8,1fr);margin:auto;border:4px solid #334155;border-radius:8px;overflow:hidden}.sq{border:0;display:grid;place-items:center;font-size:clamp(23px,5vw,57px);cursor:pointer;min-width:0;padding:0;line-height:1}.light{background:#cca67d}.dark{background:#b58863}.sq.selected{outline:4px solid #f59e0b;outline-offset:-4px}.sq.hint{box-shadow:inset 0 0 0 5px #35c86d}.piece-w{color:#fff;text-shadow:0 2px 2px #111,1px 0 #111,-1px 0 #111}.piece-b{color:#111;text-shadow:0 1px #fff,1px 0 #fff,-1px 0 #fff}.side,.tools{background:#172238;border:1px solid #334155;border-radius:14px;padding:15px}.side{min-height:220px}.log{white-space:pre-wrap;overflow:auto;max-height:340px;color:#cbd5e1}.tools{margin-top:16px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:end}label{display:block;font-size:13px;color:#cbd5e1;margin-bottom:5px}select,button.tool{width:100%;padding:11px;border-radius:10px;background:#263550;color:white;border:1px solid #455574;font:inherit;cursor:pointer}.actions{display:flex;gap:6px}.actions button{flex:1}#tip{margin-top:10px;color:#b9c9dc;font-size:13px}@media(max-width:750px){.arena{grid-template-columns:1fr}.side{min-height:100px}.log{max-height:110px}.tools{grid-template-columns:1fr}.sq{font-size:clamp(23px,8vw,52px)}main{padding:8px}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;main&gt;&lt;header&gt;&lt;span&gt;Turn: &lt;b id=&quot;turn&quot;&gt;White&lt;/b&gt;&lt;/span&gt;&lt;span&gt;Alert: &lt;b id=&quot;alert&quot;&gt;Normal Play&lt;/b&gt;&lt;/span&gt;&lt;span&gt;Move Count: &lt;b id=&quot;count&quot;&gt;0&lt;/b&gt;&lt;/span&gt;&lt;/header&gt;&lt;div class=&quot;arena&quot;&gt;&lt;div id=&quot;board&quot; class=&quot;board&quot; aria-label=&quot;Chessboard&quot;&gt;&lt;/div&gt;&lt;aside class=&quot;side&quot;&gt;&lt;b&gt;Arena Log Notation&lt;/b&gt;&lt;div id=&quot;log&quot; class=&quot;log&quot;&gt;No moves recorded yet&lt;/div&gt;&lt;p id=&quot;tip&quot;&gt;💡 Select a piece to see legal moves.&lt;/p&gt;&lt;/aside&gt;&lt;/div&gt;&lt;div class=&quot;tools&quot;&gt;&lt;div&gt;&lt;label for=&quot;mode&quot;&gt;Opponent Mode&lt;/label&gt;&lt;select id=&quot;mode&quot;&gt;&lt;option value=&quot;ai&quot;&gt;Vs Computer AI&lt;/option&gt;&lt;option value=&quot;local&quot;&gt;Pass &amp;amp; Play&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;&lt;div&gt;&lt;label for=&quot;theme&quot;&gt;Arena Theme&lt;/label&gt;&lt;select id=&quot;theme&quot;&gt;&lt;option value=&quot;classic&quot;&gt;Classic Wood&lt;/option&gt;&lt;option value=&quot;cyber&quot;&gt;Cyber Neon&lt;/option&gt;&lt;option value=&quot;forest&quot;&gt;Emerald Forest&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;&lt;div&gt;&lt;label&gt;Match Action Tools&lt;/label&gt;&lt;div class=&quot;actions&quot;&gt;&lt;button class=&quot;tool&quot; id=&quot;undo&quot;&gt;↶ Undo&lt;/button&gt;&lt;button class=&quot;tool&quot; id=&quot;guide&quot;&gt;💡 Guide Tip&lt;/button&gt;&lt;button class=&quot;tool&quot; id=&quot;reset&quot;&gt;↻&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/main&gt;&lt;script&gt;(function(){const $=id=&gt;document.getElementById(id);if(typeof Chess===&#x27;undefined&#x27;){$(&#x27;board&#x27;).textContent=&#x27;Chess library unavailable. Connect to the internet and reload.&#x27;;return}const game=new Chess();let selected=null,waiting=false,tip=0;const tips=[&#x27;Select a piece to see legal moves.&#x27;,&#x27;Pawns move forward and capture diagonally.&#x27;,&#x27;Knights move in an L shape.&#x27;,&#x27;Bishops move diagonally; rooks move straight.&#x27;,&#x27;Protect your king and look for checkmate.&#x27;];const glyph={w:{k:&#x27;♔&#x27;,q:&#x27;♕&#x27;,r:&#x27;♖&#x27;,b:&#x27;♗&#x27;,n:&#x27;♘&#x27;,p:&#x27;♙&#x27;},b:{k:&#x27;♚&#x27;,q:&#x27;♛&#x27;,r:&#x27;♜&#x27;,b:&#x27;♝&#x27;,n:&#x27;♞&#x27;,p:&#x27;♟&#x27;}};function draw(){const board=$(&#x27;board&#x27;);board.innerHTML=&#x27;&#x27;;const b=game.board();const moves=selected?game.moves({square:selected,verbose:true}).map(m=&gt;m.to):[];for(let r=0;r&lt;8;r++)for(let c=0;c&lt;8;c++){const sq=&#x27;abcdefgh&#x27;[c]+(8-r),p=b[r][c],btn=document.createElement(&#x27;button&#x27;);btn.className=&#x27;sq &#x27;+((r+c)%2?&#x27;dark&#x27;:&#x27;light&#x27;)+(selected===sq?&#x27; selected&#x27;:&#x27;&#x27;)+(moves.includes(sq)?&#x27; hint&#x27;:&#x27;&#x27;);btn.title=sq;btn.setAttribute(&#x27;aria-label&#x27;,sq+(p?&#x27; &#x27;+p.color+&#x27; &#x27;+p.type:&#x27;&#x27;));if(p){const span=document.createElement(&#x27;span&#x27;);span.className=&#x27;piece-&#x27;+p.color;span.textContent=glyph[p.color][p.type];btn.appendChild(span)}btn.onclick=()=&gt;click(sq);board.appendChild(btn)}$(&#x27;turn&#x27;).textContent=game.turn()===&#x27;w&#x27;?&#x27;White&#x27;:&#x27;Black&#x27;+($(&#x27;mode&#x27;).value===&#x27;ai&#x27;?&#x27; (AI)&#x27;:&#x27;&#x27;);$(&#x27;alert&#x27;).textContent=game.in_checkmate()?&#x27;Checkmate&#x27;:game.in_draw()?&#x27;Draw&#x27;:game.in_check()?&#x27;King Check&#x27;:&#x27;Normal Play&#x27;;$(&#x27;count&#x27;).textContent=game.history().length;const h=game.history();$(&#x27;log&#x27;).textContent=h.length?h.map((x,i)=&gt;(i+1)+&#x27;. &#x27;+x).join(&#x27;\n&#x27;):&#x27;No moves recorded yet&#x27;;}function click(sq){if(waiting||game.game_over()||($(&#x27;mode&#x27;).value===&#x27;ai&#x27;&amp;&amp;game.turn()===&#x27;b&#x27;))return;const p=game.get(sq);if(selected){const move=game.move({from:selected,to:sq,promotion:&#x27;q&#x27;});if(move){selected=null;draw();if($(&#x27;mode&#x27;).value===&#x27;ai&#x27;&amp;&amp;!game.game_over()){waiting=true;setTimeout(ai,420)}return}}selected=p&amp;&amp;p.color===game.turn()?sq:null;draw()}function ai(){waiting=false;const m=game.moves({verbose:true});if(!m.length)return;const vals={p:1,n:3,b:3,r:5,q:9,k:100};m.sort((a,b)=&gt;(vals[b.captured]||0)-(vals[a.captured]||0));const top=m.filter(x=&gt;(vals[x.captured]||0)===(vals[m[0].captured]||0));game.move(top[Math.floor(Math.random()*top.length)]);draw()}$(&#x27;undo&#x27;).onclick=()=&gt;{if(waiting)return;game.undo();if($(&#x27;mode&#x27;).value===&#x27;ai&#x27;&amp;&amp;game.turn()===&#x27;b&#x27;)game.undo();selected=null;draw()};$(&#x27;reset&#x27;).onclick=()=&gt;{waiting=false;game.reset();selected=null;draw()};$(&#x27;mode&#x27;).onchange=()=&gt;$(&#x27;reset&#x27;).click();$(&#x27;guide&#x27;).onclick=()=&gt;{$(&#x27;tip&#x27;).textContent=&#x27;💡 &#x27;+tips[++tip%tips.length]};$(&#x27;theme&#x27;).onchange=()=&gt;{const t=$(&#x27;theme&#x27;).value;document.querySelectorAll(&#x27;.sq&#x27;).forEach(x=&gt;{if(t===&#x27;cyber&#x27;){x.style.background=x.classList.contains(&#x27;dark&#x27;)?&#x27;#0f172a&#x27;:&#x27;#2a364f&#x27;}else if(t===&#x27;forest&#x27;){x.style.background=x.classList.contains(&#x27;dark&#x27;)?&#x27;#2e7d32&#x27;:&#x27;#b0c2a5&#x27;}else x.style.background=&#x27;&#x27;})};draw()})();&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+" loading="lazy"></iframe></section>
     <!-- ==================== NEXUS AI ==================== -->
     <section id="view-nexusai" class="tab-view hidden flex-col gap-5">
       <div id="nexus-ai-chat-workspace" class="rounded-3xl border border-cyan-500/20 bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950 p-5 md:p-7 shadow-2xl">
@@ -1654,20 +1644,22 @@
               <p class="mt-2 text-[11px] leading-relaxed text-slate-500">NEXUS courtesy limits are per browser, not account-wide. They do not show provider-wide usage and can be reset by clearing this browser's site data.</p>
             </div>
           </aside>
-          <div class="flex min-h-[520px] min-w-0 flex-col overflow-hidden rounded-2xl border border-slate-700 bg-slate-950/75">
+          <div class="flex h-[min(74vh,740px)] min-h-[480px] min-w-0 flex-col overflow-hidden rounded-2xl border border-slate-700 bg-slate-950/75">
             <div class="flex items-center justify-between border-b border-slate-800 px-4 py-3">
               <div class="flex items-center gap-2"><span class="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400 to-indigo-500 text-slate-950"><i class="fa-solid fa-robot"></i></span><div><div class="text-sm font-bold text-white">NEXUS AI</div><div class="text-[11px] text-emerald-400">Powered by Prexzy AI Writer</div></div></div>
               <span class="rounded-full border border-slate-700 px-2 py-1 text-[10px] text-slate-400">GPT-4o mini</span>
             </div>
-            <div id="nexus-ai-messages" class="flex-1 space-y-4 overflow-y-auto p-4" aria-live="polite">
+            <div id="nexus-ai-messages" class="min-h-0 flex-1 space-y-4 overflow-y-auto p-4" aria-live="polite">
               <div class="mx-auto max-w-xl py-12 text-center"><div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-400/10 text-2xl text-cyan-300"><i class="fa-solid fa-wand-magic-sparkles"></i></div><h3 class="text-xl font-bold text-white">What can I help with?</h3><p class="mt-2 text-sm text-slate-400">Send a message to start chatting with NEXUS AI.</p></div>
             </div>
             <div id="nexus-ai-status" class="hidden px-4 pb-2 text-xs text-slate-400"></div>
             <form id="nexus-ai-form" class="border-t border-slate-800 p-3 md:p-4">
               <div class="flex items-end gap-2 rounded-2xl border border-slate-700 bg-slate-900 p-2 focus-within:border-cyan-500/70">
                 <textarea id="nexus-ai-input" rows="1" maxlength="4000" placeholder="Message NEXUS AI..." class="max-h-36 min-h-[44px] flex-1 resize-y bg-transparent px-2 py-3 text-sm text-white outline-none placeholder:text-slate-500" aria-label="Message NEXUS AI"></textarea>
+                <label title="Attach an image" aria-label="Attach an image" class="flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-xl border border-slate-600 text-cyan-200 hover:bg-slate-800"><i class="fa-solid fa-paperclip"></i><input id="nexus-ai-file" type="file" accept="image/png,image/jpeg,image/webp,image/gif" class="hidden"></label>
                 <button id="nexus-ai-send" type="submit" class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-cyan-500 text-slate-950 transition hover:bg-cyan-400 disabled:cursor-not-allowed disabled:opacity-40" aria-label="Send message"><i class="fa-solid fa-paper-plane"></i></button>
               </div>
+              <div id="nexus-ai-attachment" class="hidden mt-2 flex items-center gap-3 rounded-xl border border-cyan-500/30 bg-slate-800 p-2 text-xs text-slate-200"><img id="nexus-ai-attachment-preview" alt="Attached image preview" class="h-14 w-14 rounded-lg object-cover"><span id="nexus-ai-attachment-name" class="min-w-0 flex-1 truncate"></span><button id="nexus-ai-attachment-remove" type="button" class="rounded-lg px-3 py-2 text-rose-300 hover:bg-slate-700">Remove</button></div>
               <div class="mt-2 flex flex-wrap justify-between gap-2 px-1 text-[10px] text-slate-500"><span>Enter to send · Shift + Enter for a new line</span><span>Don't share passwords or private information.</span></div>
             </form>
           </div>
@@ -1681,7 +1673,7 @@
         <p id="nexusPinterestStatus" class="nexusDiscoveryStatus" role="status">Search for inspiration to get started.</p><div id="nexusPinterestResults" class="nexusPinterestMasonry"></div>
       </section>
       
-      <dialog id="nexusPinterestDialog" class="nexusDiscoveryDialog"><button class="nexusDiscoveryClose" type="button" data-nexus-close="nexusPinterestDialog" aria-label="Close image preview">✕ Close</button><div id="nexusPinterestDetails"></div></dialog><div id="nexus-ai-image-workspace" class="hidden rounded-3xl border border-fuchsia-500/20 bg-gradient-to-br from-slate-950 via-slate-900 to-fuchsia-950/40 p-5 md:p-7 shadow-2xl">
+<div id="nexus-ai-image-workspace" class="hidden rounded-3xl border border-fuchsia-500/20 bg-gradient-to-br from-slate-950 via-slate-900 to-fuchsia-950/40 p-5 md:p-7 shadow-2xl">
         <div class="mb-5 flex flex-wrap items-center justify-between gap-3"><div><div class="text-xs font-bold uppercase tracking-widest text-fuchsia-300">NEXUS AI Studio</div><h3 class="mt-1 text-2xl font-extrabold text-white">Image generator</h3><p class="mt-1 text-sm text-slate-400">Create images from your own text prompts.</p></div><button onclick="nexusAiShowChat()" class="rounded-xl border border-slate-700 bg-slate-900 px-4 py-2 text-sm font-semibold text-slate-200 hover:bg-slate-800"><i class="fa-solid fa-arrow-left mr-2"></i>Back to chat</button></div>
         <div class="grid gap-5 lg:grid-cols-2">
           <div class="space-y-4 rounded-2xl border border-slate-700 bg-slate-950/70 p-4">
@@ -1848,7 +1840,7 @@
   const USAGE_KEY='nexusAiUsage_v1';
   const MAX_PER_MINUTE=10, MAX_PER_DAY=100, MAX_HISTORY=12;
   const $=id=>document.getElementById(id);
-  let chats=[],activeChatId=null,busy=false;
+  let chats=[],activeChatId=null,busy=false,attachedImage=null;
   const now=()=>Date.now();
   const makeId=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
   const escapeHtml=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -1860,7 +1852,7 @@
   function canSend(){const u=usage();if(u.minute.length>=MAX_PER_MINUTE)return 'NEXUS AI local limit reached: 10 messages per minute. Please wait a moment.';if(u.day.length>=MAX_PER_DAY)return 'NEXUS AI local daily limit reached: 100 messages today. Try again tomorrow.';return ''}
   function recordSend(){const u=usage(),stamp=now();u.minute.push(stamp);u.day.push({date:u.today,time:stamp});try{localStorage.setItem(USAGE_KEY,JSON.stringify({minute:u.minute,day:u.day}))}catch(e){}updateUsage()}
   function status(msg,isError=false){const el=$('nexus-ai-status');if(!el)return;el.textContent=msg;el.classList.remove('hidden');el.className='px-4 pb-2 text-xs '+(isError?'text-rose-300':'text-slate-400')}
-  function addBubble(role,text){const box=$('nexus-ai-messages');if(!box)return;const empty=box.querySelector('.text-center');if(empty)empty.remove();const wrap=document.createElement('div');wrap.className=role==='user'?'flex justify-end':'flex justify-start';const bubble=document.createElement('div');bubble.className=role==='user'?'max-w-[88%] whitespace-pre-wrap break-words rounded-2xl rounded-br-md bg-indigo-600 px-4 py-3 text-sm leading-relaxed text-white':'max-w-[92%] whitespace-pre-wrap break-words rounded-2xl rounded-bl-md border border-slate-700 bg-slate-900 px-4 py-3 text-sm leading-relaxed text-slate-100';bubble.textContent=text;wrap.appendChild(bubble);box.appendChild(wrap);box.scrollTop=box.scrollHeight;return wrap}
+  function addBubble(role,text){const box=$('nexus-ai-messages');if(!box)return;const empty=box.querySelector('.text-center');if(empty)empty.remove();const wrap=document.createElement('div');wrap.className=role==='user'?'flex justify-end':'flex justify-start';const bubble=document.createElement('div');bubble.className=role==='user'?'max-w-[88%] whitespace-pre-wrap break-words rounded-2xl rounded-br-md bg-indigo-600 px-4 py-3 text-sm leading-relaxed text-white':'max-w-[92%] whitespace-pre-wrap break-words rounded-2xl rounded-bl-md border border-slate-700 bg-slate-900 px-4 py-3 text-sm leading-relaxed text-slate-100';bubble.textContent=text;wrap.appendChild(bubble);box.appendChild(wrap);box.scrollTop=box.scrollHeight;requestAnimationFrame(()=>{box.scrollTop=box.scrollHeight});return wrap}
   function renderMessages(){const box=$('nexus-ai-messages');if(!box)return;box.innerHTML='';const chat=activeChat();if(!chat||!chat.messages.length){box.innerHTML='<div class="mx-auto max-w-xl py-12 text-center"><div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-400/10 text-2xl text-cyan-300"><i class="fa-solid fa-wand-magic-sparkles"></i></div><h3 class="text-xl font-bold text-white">What can I help with?</h3><p class="mt-2 text-sm text-slate-400">Send a message to start chatting with NEXUS AI.</p></div>';return}chat.messages.forEach(m=>addBubble(m.role,m.content));box.scrollTop=box.scrollHeight}
   function renderHistory(){const box=$('nexus-ai-history');if(!box)return;box.innerHTML='';if(!chats.length){box.innerHTML='<p class="p-2 text-xs text-slate-500">Your chats will appear here.</p>';return}chats.slice().reverse().forEach(chat=>{const b=document.createElement('button');b.type='button';b.className='block w-full truncate rounded-lg px-2 py-2 text-left text-xs '+(chat.id===activeChatId?'bg-cyan-500/15 text-cyan-200':'text-slate-400 hover:bg-slate-800 hover:text-white');b.textContent=chat.title||'New chat';b.onclick=()=>{activeChatId=chat.id;renderMessages();renderHistory()};box.appendChild(b)})}
   function newChat(){const c={id:makeId(),title:'New chat',messages:[]};chats.push(c);activeChatId=c.id;saveChats();renderMessages();renderHistory();$('nexus-ai-input')?.focus()}
@@ -1874,10 +1866,20 @@
     }
     return '';
   }
-  async function sendMessage(text){if(busy)return;const blocked=canSend();if(blocked){status(blocked,true);return}let chat=activeChat();if(!chat){newChat();chat=activeChat()}const clean=text.trim();if(!clean)return;busy=true;recordSend();chat.messages.push({role:'user',content:clean});if(chat.title==='New chat')chat.title=clean.slice(0,42)+(clean.length>42?'…':'');saveChats();renderMessages();renderHistory();const send=$('nexus-ai-send'),input=$('nexus-ai-input');if(send)send.disabled=true;if(input)input.disabled=true;status('NEXUS AI is thinking…');const typing=addBubble('assistant','Thinking…');try{const context=chat.messages.slice(-MAX_HISTORY).map(m=>(m.role==='user'?'User':'Assistant')+': '+m.content).join('\n\n');const prompt='You are NEXUS AI, a helpful, friendly assistant inside NEXUS Arcade. Be clear, useful, and honest.\n\nConversation:\n'+context+'\n\nAssistant:';const url=new URL(ENDPOINT);url.searchParams.set('prompt',prompt);url.searchParams.set('model',MODEL);const response=await fetch(url.toString(),{method:'GET',headers:{'Accept':'application/json'}});const raw=await response.text();if(!response.ok)throw new Error('The AI service returned HTTP '+response.status+'. '+raw.slice(0,180));let data;try{data=JSON.parse(raw)}catch(e){data=raw}const reply=getReply(data);if(!reply)throw new Error('The AI service responded, but the reply format was not recognized.');typing?.remove();chat.messages.push({role:'assistant',content:reply});saveChats();addBubble('assistant',reply);status('');}catch(err){typing?.remove();chat.messages.pop();saveChats();addBubble('assistant','Sorry — I could not get a response. '+(err?.message||'Please try again.'));status('Check your connection or try again later.',true)}finally{busy=false;if(send)send.disabled=false;if(input){input.disabled=false;input.value='';input.focus()}updateUsage()}}
-  function init(){chats=readJson(HISTORY_KEY,[]);if(!Array.isArray(chats))chats=[];activeChatId=chats[chats.length-1]?.id||null;if(!activeChatId)newChat();else{renderMessages();renderHistory()}updateUsage();const form=$('nexus-ai-form');if(form)form.addEventListener('submit',e=>{e.preventDefault();const value=$('nexus-ai-input')?.value||'';sendMessage(value)});const input=$('nexus-ai-input');if(input)input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();form?.requestSubmit()}})}
+  async function sendMessage(text){if(busy)return;const blocked=canSend();if(blocked){status(blocked,true);return}let chat=activeChat();if(!chat){newChat();chat=activeChat()}const clean=text.trim();const image=attachedImage;if(!clean&&!image)return;busy=true;recordSend();chat.messages.push({role:'user',content:clean+(image?'\n[Attached image: '+image.name+']':'')});if(chat.title==='New chat')chat.title=clean.slice(0,42)+(clean.length>42?'…':'');saveChats();renderMessages();renderHistory();const send=$('nexus-ai-send'),input=$('nexus-ai-input');if(send)send.disabled=true;if(input)input.disabled=true;status('NEXUS AI is thinking…');const typing=addBubble('assistant','Thinking…');try{const context=chat.messages.slice(-MAX_HISTORY).map(m=>(m.role==='user'?'User':'Assistant')+': '+m.content).join('\n\n');const prompt='You are NEXUS AI, a helpful, friendly assistant inside NEXUS Arcade. Be clear, useful, and honest.\n\nConversation:\n'+context+'\n\nAssistant:';const url=new URL(image?'https://prexzyapis.com/ai/askgpt5':ENDPOINT);url.searchParams.set('prompt',image?('Analyze the attached image carefully. Identify any visible questions, solve them step by step, and clearly explain the answer. User request: '+(clean||'Analyze this image.')):prompt);if(image){url.searchParams.set('media',image.data);if(url.toString().length>14000)throw new Error('Image too large for this API URL. Try a smaller screenshot.')}else{url.searchParams.set('model',MODEL);}const response=await fetch(url.toString(),{method:'GET',headers:{'Accept':'application/json'}});const raw=await response.text();if(!response.ok)throw new Error('The AI service returned HTTP '+response.status+'. '+raw.slice(0,180));let data;try{data=JSON.parse(raw)}catch(e){data=raw}const reply=getReply(data);if(!reply)throw new Error('The AI service responded, but the reply format was not recognized.');typing?.remove();chat.messages.push({role:'assistant',content:reply});saveChats();addBubble('assistant',reply);if(image===attachedImage)clearAttachment();status('');requestAnimationFrame(()=>{const box=$('nexus-ai-messages');if(box)box.scrollTop=box.scrollHeight});}catch(err){typing?.remove();chat.messages.pop();saveChats();addBubble('assistant','Sorry — I could not get a response. '+(err?.message||'Please try again.'));status('Check your connection or try again later.',true)}finally{busy=false;if(send)send.disabled=false;if(input){input.disabled=false;input.value='';input.focus()}updateUsage()}}
+  function clearAttachment(){attachedImage=null;const f=$('nexus-ai-file');if(f)f.value='';$('nexus-ai-attachment')?.classList.add('hidden')}
+  function prepareAttachment(file){
+    if(!file||!/^image\/(png|jpeg|webp|gif)$/.test(file.type)){status('Choose a PNG, JPEG, WebP, or GIF image.',true);return}
+    const img=new Image(),reader=new FileReader();
+    reader.onerror=()=>status('Could not read that image.',true);
+    reader.onload=()=>{img.onload=()=>{
+      const scale=Math.min(1,640/Math.max(img.width,img.height));const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(img.width*scale));canvas.height=Math.max(1,Math.round(img.height*scale));canvas.getContext('2d').drawImage(img,0,0,canvas.width,canvas.height);
+      const data=canvas.toDataURL('image/jpeg',0.53);attachedImage={data,name:file.name};$('nexus-ai-attachment-preview').src=data;$('nexus-ai-attachment-name').textContent=file.name;$('nexus-ai-attachment').classList.remove('hidden');status('Image ready. Send a question to analyze it. Image support depends on the AI provider.');
+    };img.onerror=()=>status('Invalid image.',true);img.src=reader.result;};reader.readAsDataURL(file);
+  }
+  function init(){ $('nexus-ai-file')?.addEventListener('change',e=>prepareAttachment(e.target.files?.[0]));$('nexus-ai-attachment-remove')?.addEventListener('click',clearAttachment);chats=readJson(HISTORY_KEY,[]);if(!Array.isArray(chats))chats=[];activeChatId=chats[chats.length-1]?.id||null;if(!activeChatId)newChat();else{renderMessages();renderHistory()}updateUsage();const form=$('nexus-ai-form');if(form)form.addEventListener('submit',e=>{e.preventDefault();const value=$('nexus-ai-input')?.value||'';sendMessage(value)});const input=$('nexus-ai-input');if(input)input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();form?.requestSubmit()}})}
   window.nexusAiNewChat=newChat;
-  window.nexusAiClearHistory=function(){if(!confirm('Clear all saved NEXUS AI chats from this browser?'))return;chats=[];activeChatId=null;try{localStorage.removeItem(HISTORY_KEY)}catch(e){}newChat()};
+  window.nexusAiClearHistory=function(){if(!confirm('Learning cleared? This will remove your saved chats from this browser.'))return;chats=[];activeChatId=null;try{localStorage.removeItem(HISTORY_KEY)}catch(e){}newChat()};
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script>
@@ -1958,5 +1960,6 @@ async function search(kind){const input=el(kind==='anime'?'nexusAnimeQuery':'nex
 el('nexusAnimeForm')?.addEventListener('submit',e=>{e.preventDefault();search('anime');});el('nexusPinterestForm')?.addEventListener('submit',e=>{e.preventDefault();search('pinterest');});document.querySelectorAll('[data-nexus-close]').forEach(b=>b.addEventListener('click',()=>el(b.dataset.nexusClose)?.close()));document.querySelectorAll('.nexusDiscoveryDialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d)d.close();}));
 })();
 </script>
+
 </body>
 </html>
