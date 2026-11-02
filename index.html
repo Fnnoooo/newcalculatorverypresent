@@ -872,7 +872,9 @@
   </style>
 
 </head>
-        <body>${code}</body>
+        <body>${code}
+
+</body>
         </html>
       `);
       doc.close();
@@ -1128,6 +1130,9 @@
         <button onclick="switchTab('tube')" id="nav-tube" class="nav-btn px-4 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white transition-all flex items-center gap-2">
           <i class="fa-brands fa-youtube"></i> NEXUS Tube
         </button>
+        <button onclick="switchTab('nexusai')" id="nav-nexusai" class="nav-btn px-4 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white transition-all flex items-center gap-2">
+          <i class="fa-solid fa-robot"></i> NEXUS AI
+        </button>
       </nav>
 
       <!-- Quick Embed Button -->
@@ -1151,6 +1156,7 @@
     <button onclick="switchTab('howtowin')" id="mnav-howtowin" class="text-xs font-semibold px-3 py-2 rounded-md text-slate-300 whitespace-nowrap">How to Win Multiplayer</button>
     <button onclick="switchTab('embed')" id="mnav-embed" class="text-xs font-semibold px-3 py-2 rounded-md text-slate-300 whitespace-nowrap">Embed Portal</button>
     <button onclick="switchTab('tube')" id="mnav-tube" class="text-xs font-semibold px-3 py-2 rounded-md text-slate-300 whitespace-nowrap"><i class="fa-brands fa-youtube mr-1"></i>Tube</button>
+    <button onclick="switchTab('nexusai')" id="mnav-nexusai" class="text-xs font-semibold px-3 py-2 rounded-md text-slate-300 whitespace-nowrap"><i class="fa-solid fa-robot mr-1"></i>AI</button>
   </nav>
 
   <!-- Main View Area -->
@@ -1626,6 +1632,68 @@
     </section>
 
 
+    <!-- ==================== NEXUS AI ==================== -->
+    <section id="view-nexusai" class="tab-view hidden flex-col gap-5">
+      <div id="nexus-ai-chat-workspace" class="rounded-3xl border border-cyan-500/20 bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950 p-5 md:p-7 shadow-2xl">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
+          <div>
+            <div class="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-cyan-300"><i class="fa-solid fa-sparkles"></i> NEXUS Assistant</div>
+            <h2 class="mt-3 text-3xl font-extrabold text-white">NEXUS AI</h2>
+            <p class="mt-1 text-sm text-slate-400">Ask questions, brainstorm, learn, or get help with code.</p>
+          </div>
+          <div class="flex flex-wrap gap-2"><button onclick="nexusAiShowChat()" id="nexus-ai-chat-tab" class="rounded-xl border border-cyan-400/40 bg-cyan-400/15 px-4 py-2 text-sm font-bold text-cyan-200"><i class="fa-solid fa-comments mr-2"></i>Chat</button><button onclick="nexusAiShowImages()" id="nexus-ai-image-tab" class="rounded-xl border border-slate-700 bg-slate-900 px-4 py-2 text-sm font-bold text-slate-300 hover:border-fuchsia-400/50"><i class="fa-solid fa-image mr-2"></i>Image generator</button><button type="button" id="nexusPinterestTab" onclick="nexusDiscoveryShow('pinterest')" class="rounded-xl border border-slate-700 bg-slate-900 px-4 py-2 text-sm font-bold text-slate-200">Pinterest</button><button onclick="nexusAiNewChat()" class="rounded-xl border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-sm font-bold text-cyan-200 hover:bg-cyan-400/20"><i class="fa-solid fa-plus mr-2"></i>New chat</button></div>
+        </div>
+        <div class="grid gap-4 lg:grid-cols-[220px_minmax(0,1fr)]">
+          <aside class="rounded-2xl border border-slate-700 bg-slate-950/60 p-3">
+            <div class="mb-2 flex items-center justify-between"><span class="text-xs font-bold uppercase tracking-wider text-slate-400">Recent chats</span><button onclick="nexusAiClearHistory()" class="text-xs text-slate-500 hover:text-red-300">Clear</button></div>
+            <div id="nexus-ai-history" class="max-h-48 space-y-1 overflow-y-auto lg:max-h-[440px]"><p class="p-2 text-xs text-slate-500">Your chats will appear here.</p></div>
+            <div class="mt-4 rounded-xl border border-slate-800 bg-slate-900/70 p-3">
+              <div class="text-xs font-bold text-slate-300">Usage &amp; limits</div>
+              <div class="mt-2 text-xs leading-relaxed text-slate-400">Provider: no fixed public per-minute or per-day quota is published for normal use. Availability may change.</div>
+              <div id="nexus-ai-usage" class="mt-2 text-xs font-semibold text-cyan-300">This browser: 0 / 10 messages this minute · 0 / 100 today</div>
+              <p class="mt-2 text-[11px] leading-relaxed text-slate-500">NEXUS courtesy limits are per browser, not account-wide. They do not show provider-wide usage and can be reset by clearing this browser's site data.</p>
+            </div>
+          </aside>
+          <div class="flex min-h-[520px] min-w-0 flex-col overflow-hidden rounded-2xl border border-slate-700 bg-slate-950/75">
+            <div class="flex items-center justify-between border-b border-slate-800 px-4 py-3">
+              <div class="flex items-center gap-2"><span class="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400 to-indigo-500 text-slate-950"><i class="fa-solid fa-robot"></i></span><div><div class="text-sm font-bold text-white">NEXUS AI</div><div class="text-[11px] text-emerald-400">Powered by Prexzy AI Writer</div></div></div>
+              <span class="rounded-full border border-slate-700 px-2 py-1 text-[10px] text-slate-400">GPT-4o mini</span>
+            </div>
+            <div id="nexus-ai-messages" class="flex-1 space-y-4 overflow-y-auto p-4" aria-live="polite">
+              <div class="mx-auto max-w-xl py-12 text-center"><div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-400/10 text-2xl text-cyan-300"><i class="fa-solid fa-wand-magic-sparkles"></i></div><h3 class="text-xl font-bold text-white">What can I help with?</h3><p class="mt-2 text-sm text-slate-400">Send a message to start chatting with NEXUS AI.</p></div>
+            </div>
+            <div id="nexus-ai-status" class="hidden px-4 pb-2 text-xs text-slate-400"></div>
+            <form id="nexus-ai-form" class="border-t border-slate-800 p-3 md:p-4">
+              <div class="flex items-end gap-2 rounded-2xl border border-slate-700 bg-slate-900 p-2 focus-within:border-cyan-500/70">
+                <textarea id="nexus-ai-input" rows="1" maxlength="4000" placeholder="Message NEXUS AI..." class="max-h-36 min-h-[44px] flex-1 resize-y bg-transparent px-2 py-3 text-sm text-white outline-none placeholder:text-slate-500" aria-label="Message NEXUS AI"></textarea>
+                <button id="nexus-ai-send" type="submit" class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-cyan-500 text-slate-950 transition hover:bg-cyan-400 disabled:cursor-not-allowed disabled:opacity-40" aria-label="Send message"><i class="fa-solid fa-paper-plane"></i></button>
+              </div>
+              <div class="mt-2 flex flex-wrap justify-between gap-2 px-1 text-[10px] text-slate-500"><span>Enter to send · Shift + Enter for a new line</span><span>Don't share passwords or private information.</span></div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- NEXUS AI discovery additions: isolated from existing games and chat -->
+      
+      <section id="nexusPinterestWorkspace" class="nexusDiscovery hidden rounded-3xl border border-rose-500/30 bg-slate-900 p-5 md:p-7 text-slate-100" aria-label="Pinterest discovery">
+        <div class="flex flex-wrap items-center justify-between gap-3"><h2 class="text-2xl font-extrabold">Pinterest Discovery Hub</h2><button type="button" onclick="nexusAiShowChat()" id="nexusPinterestGoBack" class="rounded-xl border-2 border-cyan-400 bg-cyan-900 px-5 py-3 text-base font-bold text-white hover:bg-cyan-800">← Go Back</button></div><p class="text-sm text-slate-400 mt-1">Discover visual inspiration from search results.</p>
+        <form id="nexusPinterestForm" class="nexusDiscoveryForm"><input id="nexusPinterestQuery" required autocomplete="off" placeholder="Search images and ideas…" aria-label="Pinterest search"><button type="submit">Search Images</button></form>
+        <p id="nexusPinterestStatus" class="nexusDiscoveryStatus" role="status">Search for inspiration to get started.</p><div id="nexusPinterestResults" class="nexusPinterestMasonry"></div>
+      </section>
+      
+      <dialog id="nexusPinterestDialog" class="nexusDiscoveryDialog"><button class="nexusDiscoveryClose" type="button" data-nexus-close="nexusPinterestDialog" aria-label="Close image preview">✕ Close</button><div id="nexusPinterestDetails"></div></dialog><div id="nexus-ai-image-workspace" class="hidden rounded-3xl border border-fuchsia-500/20 bg-gradient-to-br from-slate-950 via-slate-900 to-fuchsia-950/40 p-5 md:p-7 shadow-2xl">
+        <div class="mb-5 flex flex-wrap items-center justify-between gap-3"><div><div class="text-xs font-bold uppercase tracking-widest text-fuchsia-300">NEXUS AI Studio</div><h3 class="mt-1 text-2xl font-extrabold text-white">Image generator</h3><p class="mt-1 text-sm text-slate-400">Create images from your own text prompts.</p></div><button onclick="nexusAiShowChat()" class="rounded-xl border border-slate-700 bg-slate-900 px-4 py-2 text-sm font-semibold text-slate-200 hover:bg-slate-800"><i class="fa-solid fa-arrow-left mr-2"></i>Back to chat</button></div>
+        <div class="grid gap-5 lg:grid-cols-2">
+          <div class="space-y-4 rounded-2xl border border-slate-700 bg-slate-950/70 p-4">
+            <label class="block text-sm font-semibold text-slate-200" for="nexus-ai-image-prompt">Describe the image</label><textarea id="nexus-ai-image-prompt" rows="4" maxlength="1500" placeholder="A cinematic futuristic city at sunset..." class="w-full rounded-xl border border-slate-700 bg-slate-900 p-3 text-sm text-white outline-none focus:border-fuchsia-400"></textarea>
+            <div class="grid grid-cols-3 gap-2"><label class="text-xs text-slate-400">Width<input id="nexus-ai-image-width" type="number" min="256" max="1536" step="64" value="1024" class="mt-1 w-full rounded-lg border border-slate-700 bg-slate-900 p-2 text-white"></label><label class="text-xs text-slate-400">Height<input id="nexus-ai-image-height" type="number" min="256" max="1536" step="64" value="1024" class="mt-1 w-full rounded-lg border border-slate-700 bg-slate-900 p-2 text-white"></label><label class="text-xs text-slate-400">Steps<input id="nexus-ai-image-steps" type="number" min="1" max="8" value="4" class="mt-1 w-full rounded-lg border border-slate-700 bg-slate-900 p-2 text-white"></label></div>
+            <button id="nexus-ai-generate-btn" onclick="nexusAiGenerateImage()" class="w-full rounded-xl bg-gradient-to-r from-fuchsia-600 to-indigo-600 px-4 py-3 font-bold text-white hover:brightness-110 disabled:opacity-50"><i class="fa-solid fa-wand-magic-sparkles mr-2"></i>Generate image</button>
+          </div>
+          <div class="flex min-h-[340px] flex-col items-center justify-center rounded-2xl border border-slate-700 bg-slate-950/70 p-4 text-center"><div id="nexus-ai-image-empty" class="text-slate-500"><i class="fa-regular fa-image text-5xl text-slate-700"></i><p class="mt-3 text-sm">Your generated image will appear here.</p></div><img id="nexus-ai-image-result" alt="NEXUS AI generated result" class="hidden max-h-[520px] max-w-full rounded-xl object-contain"><div id="nexus-ai-image-status" class="mt-3 text-xs text-slate-400" aria-live="polite"></div><a id="nexus-ai-image-download" class="mt-3 hidden rounded-lg bg-slate-800 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-700" download="nexus-ai-image.png"> <i class="fa-solid fa-download mr-2"></i>Download image</a></div>
+        </div>
+      </div>
+    </section>
+
     <!-- ==================== NEXUS TUBE ==================== -->
     <section id="view-tube" class="tab-view hidden flex-col gap-6 animate-fadeIn w-full">
       <div class="rounded-3xl border border-slate-700 bg-gradient-to-br from-slate-950 via-red-950/40 to-slate-900 p-5 md:p-8 shadow-2xl">
@@ -1769,5 +1837,126 @@
 })();
 </script>
 
+
+<script>
+/* NEXUS AI — Prexzy AI Writer Chat integration */
+(function(){
+  'use strict';
+  const ENDPOINT='https://prexzyapis.com/ai/aiwriter-chat';
+  const MODEL='gpt-4o-mini';
+  const HISTORY_KEY='nexusAiChatHistory_v1';
+  const USAGE_KEY='nexusAiUsage_v1';
+  const MAX_PER_MINUTE=10, MAX_PER_DAY=100, MAX_HISTORY=12;
+  const $=id=>document.getElementById(id);
+  let chats=[],activeChatId=null,busy=false;
+  const now=()=>Date.now();
+  const makeId=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+  const escapeHtml=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  function readJson(key,fallback){try{return JSON.parse(localStorage.getItem(key))||fallback}catch(e){return fallback}}
+  function saveChats(){try{localStorage.setItem(HISTORY_KEY,JSON.stringify(chats.slice(-30)))}catch(e){}}
+  function activeChat(){return chats.find(c=>c.id===activeChatId)}
+  function usage(){let u=readJson(USAGE_KEY,{minute:[],day:[]});const t=now();u.minute=(Array.isArray(u.minute)?u.minute:[]).filter(x=>t-x<60000);const today=new Date().toLocaleDateString('en-CA');u.day=Array.isArray(u.day)?u.day.filter(x=>x.date===today):[];return {minute:u.minute,day:u.day,today}}
+  function updateUsage(){const u=usage(),el=$('nexus-ai-usage');if(el)el.textContent=`This browser: ${u.minute.length} / ${MAX_PER_MINUTE} messages this minute · ${u.day.length} / ${MAX_PER_DAY} today`}
+  function canSend(){const u=usage();if(u.minute.length>=MAX_PER_MINUTE)return 'NEXUS AI local limit reached: 10 messages per minute. Please wait a moment.';if(u.day.length>=MAX_PER_DAY)return 'NEXUS AI local daily limit reached: 100 messages today. Try again tomorrow.';return ''}
+  function recordSend(){const u=usage(),stamp=now();u.minute.push(stamp);u.day.push({date:u.today,time:stamp});try{localStorage.setItem(USAGE_KEY,JSON.stringify({minute:u.minute,day:u.day}))}catch(e){}updateUsage()}
+  function status(msg,isError=false){const el=$('nexus-ai-status');if(!el)return;el.textContent=msg;el.classList.remove('hidden');el.className='px-4 pb-2 text-xs '+(isError?'text-rose-300':'text-slate-400')}
+  function addBubble(role,text){const box=$('nexus-ai-messages');if(!box)return;const empty=box.querySelector('.text-center');if(empty)empty.remove();const wrap=document.createElement('div');wrap.className=role==='user'?'flex justify-end':'flex justify-start';const bubble=document.createElement('div');bubble.className=role==='user'?'max-w-[88%] whitespace-pre-wrap break-words rounded-2xl rounded-br-md bg-indigo-600 px-4 py-3 text-sm leading-relaxed text-white':'max-w-[92%] whitespace-pre-wrap break-words rounded-2xl rounded-bl-md border border-slate-700 bg-slate-900 px-4 py-3 text-sm leading-relaxed text-slate-100';bubble.textContent=text;wrap.appendChild(bubble);box.appendChild(wrap);box.scrollTop=box.scrollHeight;return wrap}
+  function renderMessages(){const box=$('nexus-ai-messages');if(!box)return;box.innerHTML='';const chat=activeChat();if(!chat||!chat.messages.length){box.innerHTML='<div class="mx-auto max-w-xl py-12 text-center"><div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-400/10 text-2xl text-cyan-300"><i class="fa-solid fa-wand-magic-sparkles"></i></div><h3 class="text-xl font-bold text-white">What can I help with?</h3><p class="mt-2 text-sm text-slate-400">Send a message to start chatting with NEXUS AI.</p></div>';return}chat.messages.forEach(m=>addBubble(m.role,m.content));box.scrollTop=box.scrollHeight}
+  function renderHistory(){const box=$('nexus-ai-history');if(!box)return;box.innerHTML='';if(!chats.length){box.innerHTML='<p class="p-2 text-xs text-slate-500">Your chats will appear here.</p>';return}chats.slice().reverse().forEach(chat=>{const b=document.createElement('button');b.type='button';b.className='block w-full truncate rounded-lg px-2 py-2 text-left text-xs '+(chat.id===activeChatId?'bg-cyan-500/15 text-cyan-200':'text-slate-400 hover:bg-slate-800 hover:text-white');b.textContent=chat.title||'New chat';b.onclick=()=>{activeChatId=chat.id;renderMessages();renderHistory()};box.appendChild(b)})}
+  function newChat(){const c={id:makeId(),title:'New chat',messages:[]};chats.push(c);activeChatId=c.id;saveChats();renderMessages();renderHistory();$('nexus-ai-input')?.focus()}
+  function getReply(data){
+    if(typeof data==='string'){try{data=JSON.parse(data)}catch(e){return data.trim()}}
+    const candidates=[data?.result?.text,data?.result?.response,data?.result?.answer,data?.result?.content,data?.response,data?.answer,data?.text,data?.message,data?.content,data?.output,data?.choices?.[0]?.message?.content,data?.choices?.[0]?.text,data?.data?.result?.text,data?.data?.response,data?.data?.answer,data?.data?.text,data?.data?.choices?.[0]?.message?.content];
+    for(const value of candidates){
+      if(typeof value==='string'&&value.trim())return value.trim();
+      if(Array.isArray(value)){const joined=value.filter(v=>typeof v==='string'&&v.trim()).join('\n').trim();if(joined)return joined}
+      if(value&&typeof value==='object'){const nested=value.text??value.content??value.message;if(typeof nested==='string'&&nested.trim())return nested.trim();if(Array.isArray(nested)){const joined=nested.filter(v=>typeof v==='string'&&v.trim()).join('\n').trim();if(joined)return joined}}
+    }
+    return '';
+  }
+  async function sendMessage(text){if(busy)return;const blocked=canSend();if(blocked){status(blocked,true);return}let chat=activeChat();if(!chat){newChat();chat=activeChat()}const clean=text.trim();if(!clean)return;busy=true;recordSend();chat.messages.push({role:'user',content:clean});if(chat.title==='New chat')chat.title=clean.slice(0,42)+(clean.length>42?'…':'');saveChats();renderMessages();renderHistory();const send=$('nexus-ai-send'),input=$('nexus-ai-input');if(send)send.disabled=true;if(input)input.disabled=true;status('NEXUS AI is thinking…');const typing=addBubble('assistant','Thinking…');try{const context=chat.messages.slice(-MAX_HISTORY).map(m=>(m.role==='user'?'User':'Assistant')+': '+m.content).join('\n\n');const prompt='You are NEXUS AI, a helpful, friendly assistant inside NEXUS Arcade. Be clear, useful, and honest.\n\nConversation:\n'+context+'\n\nAssistant:';const url=new URL(ENDPOINT);url.searchParams.set('prompt',prompt);url.searchParams.set('model',MODEL);const response=await fetch(url.toString(),{method:'GET',headers:{'Accept':'application/json'}});const raw=await response.text();if(!response.ok)throw new Error('The AI service returned HTTP '+response.status+'. '+raw.slice(0,180));let data;try{data=JSON.parse(raw)}catch(e){data=raw}const reply=getReply(data);if(!reply)throw new Error('The AI service responded, but the reply format was not recognized.');typing?.remove();chat.messages.push({role:'assistant',content:reply});saveChats();addBubble('assistant',reply);status('');}catch(err){typing?.remove();chat.messages.pop();saveChats();addBubble('assistant','Sorry — I could not get a response. '+(err?.message||'Please try again.'));status('Check your connection or try again later.',true)}finally{busy=false;if(send)send.disabled=false;if(input){input.disabled=false;input.value='';input.focus()}updateUsage()}}
+  function init(){chats=readJson(HISTORY_KEY,[]);if(!Array.isArray(chats))chats=[];activeChatId=chats[chats.length-1]?.id||null;if(!activeChatId)newChat();else{renderMessages();renderHistory()}updateUsage();const form=$('nexus-ai-form');if(form)form.addEventListener('submit',e=>{e.preventDefault();const value=$('nexus-ai-input')?.value||'';sendMessage(value)});const input=$('nexus-ai-input');if(input)input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();form?.requestSubmit()}})}
+  window.nexusAiNewChat=newChat;
+  window.nexusAiClearHistory=function(){if(!confirm('Clear all saved NEXUS AI chats from this browser?'))return;chats=[];activeChatId=null;try{localStorage.removeItem(HISTORY_KEY)}catch(e){}newChat()};
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+
+
+<script>
+/* NEXUS AI Studio — Prexzy image generation */
+(function(){
+  'use strict';
+  const $=id=>document.getElementById(id);
+  const GEN='https://prexzyapis.com/ai/genimage';
+  let busy=false;
+  function showStatus(message,error=false){const el=$('nexus-ai-image-status');if(el){el.textContent=message;el.className='mt-3 text-xs '+(error?'text-rose-300':'text-slate-400')}}
+  function showImage(data){
+    const seen=new WeakSet();
+    function locate(value,depth=0){
+      if(depth>10||value==null)return '';
+      if(typeof value==='string'){
+        const v=value.trim();
+        if(/^data:image\/(png|jpeg|webp|gif);base64,/i.test(v)||/^blob:/i.test(v))return v;
+        if(/^https?:\/\//i.test(v)){
+          try{const u=new URL(v);if(!/\.(json|html?|js|css)$/i.test(u.pathname)&&!/(?:success|generated)/i.test(u.hostname))return v;}catch(e){}
+        }
+        if(/^\/?\/?[A-Za-z0-9+/]{100,}={0,2}$/.test(v))return 'data:image/png;base64,'+v;
+        try{if((v[0]==='{'||v[0]==='[')){const parsed=JSON.parse(v);return locate(parsed,depth+1);}}catch(e){}
+        const match=v.match(/https?:\/\/[^\s"'<>]+\.(?:png|jpe?g|webp|gif)(?:\?[^\s"'<>]*)?/i);
+        return match?match[0]:'';
+      }
+      if(typeof value!=='object'||seen.has(value))return '';
+      seen.add(value);
+      if(Array.isArray(value)){for(const item of value){const found=locate(item,depth+1);if(found)return found;}return '';}
+      const priority=['image_url','imageUrl','image','images','generated_image','generatedImage','output','outputs','url','src','base64','b64_json','data','result','response','media','file','files','text'];
+      for(const key of priority){if(Object.prototype.hasOwnProperty.call(value,key)){const found=locate(value[key],depth+1);if(found)return found;}}
+      for(const [key,item] of Object.entries(value)){if(/image|photo|picture|asset|result|output/i.test(key)){const found=locate(item,depth+1);if(found)return found;}}
+      return '';
+    }
+    const src=locate(data);
+    if(!src){console.warn('NEXUS image API response (no image found):',data);const detail=typeof data==='object'?(data?.message||data?.error||data?.detail||data?.result?.message):'';throw new Error(detail?'Image service: '+String(detail).slice(0,220)+' (The API did not supply an image; this cannot be fixed by changing the display alone.)':'The image service returned no usable image. Please try again; its response format may have changed.');}
+    const img=$('nexus-ai-image-result'),empty=$('nexus-ai-image-empty'),dl=$('nexus-ai-image-download');
+    img.onerror=()=>{showStatus('The image URL was returned, but the image could not load. The service may be blocking access.',true);};
+    img.onload=()=>showStatus('Image ready!');
+    img.src=src;img.classList.remove('hidden');empty?.classList.add('hidden');dl.href=src;dl.classList.remove('hidden');
+  }
+  async function readResponse(response){const ct=(response.headers.get('content-type')||'').toLowerCase();if(response.ok&&ct.startsWith('image/'))return {image:URL.createObjectURL(await response.blob())};const raw=await response.text();let data;try{data=JSON.parse(raw)}catch(e){data=raw}if(!response.ok)throw new Error('API returned HTTP '+response.status+'. '+String(raw).slice(0,180));if(data&&typeof data==='object'&&(data.status===false||data.result?.status===false))throw new Error(data.message||data.result?.message||'The image API reported an error.');return data}
+  async function run(button,work,label){if(busy)return;busy=true;if(button)button.disabled=true;showStatus(label);try{const data=await work();showImage(data);}catch(e){showStatus(e.message||'Something went wrong. Please try again.',true)}finally{busy=false;if(button)button.disabled=false}}
+  window.nexusAiShowChat=function(){ $('nexus-ai-image-workspace')?.classList.add('hidden');$('nexus-ai-chat-workspace')?.classList.remove('hidden');$('nexus-ai-chat-tab')?.classList.add('border-cyan-400/40','bg-cyan-400/15','text-cyan-200');$('nexus-ai-image-tab')?.classList.remove('border-fuchsia-400/50','bg-fuchsia-400/10','text-fuchsia-200')};
+  window.nexusAiShowImages=function(){ $('nexus-ai-chat-workspace')?.classList.add('hidden');$('nexus-ai-image-workspace')?.classList.remove('hidden');$('nexus-ai-chat-tab')?.classList.remove('border-cyan-400/40','bg-cyan-400/15','text-cyan-200');$('nexus-ai-image-tab')?.classList.add('border-fuchsia-400/50','bg-fuchsia-400/10','text-fuchsia-200')};
+  window.nexusAiGenerateImage=function(){const prompt=$('nexus-ai-image-prompt')?.value.trim();if(!prompt){showStatus('Enter a description first.',true);return}const width=Math.min(1536,Math.max(256,Number($('nexus-ai-image-width')?.value)||1024));const height=Math.min(1536,Math.max(256,Number($('nexus-ai-image-height')?.value)||1024));const steps=Math.min(8,Math.max(1,Number($('nexus-ai-image-steps')?.value)||4));return run($('nexus-ai-generate-btn'),async()=>{const url=new URL(GEN);url.searchParams.set('prompt',prompt);url.searchParams.set('width',width);url.searchParams.set('height',height);url.searchParams.set('steps',steps);return readResponse(await fetch(url,{headers:{Accept:'image/avif,image/webp,image/png,image/jpeg,image/*,application/json;q=0.9,*/*;q=0.5'}}))},'Generating image…')};
+
+})();
+</script>
+
+<style id="nexusDiscoveryStyles">
+.nexusDiscovery{min-width:0}.nexusDiscoveryForm{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}.nexusDiscoveryForm input{flex:1 1 230px;min-width:0;background:#020617;border:1px solid #475569;border-radius:12px;padding:12px 15px;color:#fff}.nexusDiscoveryForm button{background:#6366f1;color:white;border-radius:12px;padding:12px 20px;font-weight:700}.nexusDiscoveryStatus{color:#94a3b8;margin:12px 0}.nexusAnimeGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,195px),1fr));gap:17px}.nexusDiscoveryCard{background:#0f172a;border:1px solid #334155;border-radius:16px;overflow:hidden;text-align:left;color:#e2e8f0;cursor:pointer;width:100%;transition:transform .18s,border-color .18s}.nexusDiscoveryCard:hover{transform:translateY(-3px);border-color:#818cf8}.nexusDiscoveryCard img{display:block;width:100%;object-fit:cover}.nexusAnimeGrid img{height:255px}.nexusDiscoveryCardBody{padding:12px}.nexusDiscoveryCard h3{font-weight:800;line-height:1.35;overflow-wrap:anywhere}.nexusDiscoveryCard p{font-size:12px;color:#94a3b8;margin-top:6px;overflow-wrap:anywhere}.nexusPinterestMasonry{columns:5 180px;column-gap:15px}.nexusPinterestMasonry .nexusDiscoveryCard{display:block;break-inside:avoid;margin-bottom:15px}.nexusPinterestMasonry img{height:auto;min-height:110px}.nexusDiscoveryFallback{min-height:160px;display:grid;place-items:center;color:#94a3b8;background:#1e293b}.nexusDiscoveryDialog{position:fixed;inset:0;margin:auto;width:min(92vw,800px);max-height:88vh;overflow:auto;background:#0f172a;color:#f1f5f9;border:1px solid #64748b;border-radius:18px;padding:20px;box-shadow:0 25px 80px #000a}.nexusDiscoveryDialog::backdrop{background:#020617dd}.nexusDiscoveryClose{display:block;margin-left:auto;margin-bottom:12px;border-radius:9px;background:#334155;padding:8px 14px}.nexusDiscoveryDialog img{max-width:100%;max-height:55vh;object-fit:contain;border-radius:12px;margin:auto}.nexusDiscoveryMeta{margin-top:12px;display:grid;gap:7px;overflow-wrap:anywhere}.nexusDiscoveryMeta p{white-space:pre-wrap}.nexusDiscoveryMeta a{color:#67e8f9;text-decoration:underline}.nexusDiscoverySkeleton{height:245px;border-radius:16px;background:linear-gradient(110deg,#1e293b 10%,#334155 30%,#1e293b 50%);background-size:200% 100%;animation:nexusDiscoveryShimmer 1.3s linear infinite}@keyframes nexusDiscoveryShimmer{to{background-position-x:-200%}}@media(max-width:600px){.nexusPinterestMasonry{columns:2 135px}.nexusAnimeGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.nexusAnimeGrid img{height:190px}.nexusDiscovery{padding:16px}}
+</style>
+<script id="nexusDiscoveryScript">
+(function(){'use strict';
+const el=id=>document.getElementById(id);
+const state={anime:[],pinterest:[],animeRequest:0,pinterestRequest:0};
+const workspaces=['nexus-ai-chat-workspace','nexus-ai-image-workspace','nexusPinterestWorkspace'];
+const tabs=['nexus-ai-chat-tab','nexus-ai-image-tab','nexusPinterestTab'];
+function activate(mode){workspaces.forEach((id,i)=>el(id)?.classList.toggle('hidden',i!==({chat:0,image:1,pinterest:2}[mode])));tabs.forEach((id,i)=>{const b=el(id);if(b){b.setAttribute('aria-selected',String(i===({chat:0,image:1,pinterest:2}[mode])));if(i>1)b.classList.toggle('nexusDiscoveryActive',i===({pinterest:2}[mode]));}});}
+window.nexusDiscoveryShow=activate;
+// Preserve original Chat and Image Generator handlers, adding only visibility coordination.
+function wrapOld(name,mode){const original=window[name];if(typeof original==='function')window[name]=function(...args){const result=original.apply(this,args);activate(mode);return result;};}
+wrapOld('nexusAiShowChat','chat');wrapOld('nexusAiShowImages','image');
+function pick(obj,keys){if(!obj||typeof obj!=='object')return undefined;for(const k of keys){const v=obj[k];if(v!==undefined&&v!==null&&v!=='')return v;}return undefined;}
+function string(v){if(v==null)return '';if(typeof v==='string'||typeof v==='number')return String(v);if(Array.isArray(v))return v.map(string).filter(Boolean).join(', ');if(typeof v==='object')return string(pick(v,['english','romaji','native','name','title','text','value']));return '';}
+function validUrl(v){if(typeof v!=='string')return '';try{const u=new URL(v);return /^https?:$/.test(u.protocol)?u.href:'';}catch{return '';}}
+function imageUrl(obj){const keys=['image','imageUrl','image_url','cover','coverImage','poster','posterUrl','poster_url','thumbnail','thumb','src','url','original','images','media','imageUrl','image_url','image_urls','imageUrls','image_original_url','image_large_url','original_image','image_large','image_medium','image_small','image_src','full','fullImage','high_resolution'];for(const key of keys){const v=obj?.[key];if(typeof v==='string'){const u=validUrl(v);if(u&&!/pinterest\.com\/pin\//i.test(u)&&!(/^(url|original)$/.test(key)&&/pinterest\.com/i.test(new URL(u).hostname)))return u;}else if(v&&typeof v==='object'){const nested=pick(v,['large','original','url','src','medium','high','regular','thumbnail','small','jpg','webp','image_url','imageUrl','image','originals','orig','736x','564x','474x','236x']);if(typeof nested==='string'&&validUrl(nested)&&!/pinterest\.com\/pin\//i.test(nested))return validUrl(nested);if(nested&&typeof nested==='object'){const u=imageUrl(nested);if(u)return u;}}}return '';}
+function extract(data,kind){const preferred=kind==='anime'?['results','anime','animes','items','data','list','search','response']:['results','pins','images','items','data','posts','response'];const seen=new WeakSet();function walk(node,depth){if(depth>7||node==null)return [];if(Array.isArray(node)){if(!node.length)return [];const objects=node.filter(x=>x&&typeof x==='object');if(kind==='pinterest'&&node.every(x=>typeof x==='string'&&validUrl(x)))return node.map(image=>({image}));if(objects.length&&objects.some(x=>pick(x,kind==='anime'?['title','name','animeTitle','cover','image','poster']:['image','images','image_url','thumbnail','pin_url','src','title'])))return objects;for(const x of objects){const found=walk(x,depth+1);if(found.length)return found;}return [];}if(typeof node!=='object'||seen.has(node))return [];seen.add(node);for(const key of preferred){if(node[key]!==undefined){const found=walk(node[key],depth+1);if(found.length)return found;}}if(pick(node,kind==='anime'?['title','animeTitle','name','cover']:['image','images','thumbnail','src','pin_url']))return [node];for(const val of Object.values(node)){const found=walk(val,depth+1);if(found.length)return found;}return [];}return walk(data,0);}
+function make(tag,cls,txt){const n=document.createElement(tag);if(cls)n.className=cls;if(txt!==undefined)n.textContent=txt;return n;}
+function appendImage(parent,url,alt){if(!url){parent.append(make('div','nexusDiscoveryFallback','No image available'));return;}const img=make('img');img.src=url;img.alt=alt||'Result image';img.loading='lazy';img.referrerPolicy='no-referrer';img.addEventListener('error',()=>img.replaceWith(make('div','nexusDiscoveryFallback','Image unavailable')));parent.append(img);}
+function meta(obj,exclude){const out=[];for(const [key,val] of Object.entries(obj)){if(exclude.includes(key)||val==null||val==='')continue;if(typeof val==='object'&&!Array.isArray(val)){const v=string(val);if(v)out.push([key,v]);continue;}const v=string(val);if(v&&v.length<2500)out.push([key,v]);}return out;}
+function openDetail(kind,item){const dialog=el(kind==='anime'?'nexusAnimeDialog':'nexusPinterestDialog'),box=el(kind==='anime'?'nexusAnimeDetails':'nexusPinterestDetails');box.replaceChildren();const title=string(pick(item,kind==='anime'?['title','animeTitle','name','englishTitle']:['title','name','description']))||'Untitled';box.append(make('h2','text-2xl font-bold mb-4',title));appendImage(box,imageUrl(item),title);const details=make('div','nexusDiscoveryMeta');const desc=string(pick(item,['description','synopsis','summary','caption']));if(desc)details.append(make('p','',desc));const link=validUrl(string(pick(item,kind==='anime'?['link','website','sourceUrl','url']:['pin_url','pinUrl','pin','link','source_url','sourceUrl','url'])));if(link){const a=make('a','','Open original source ↗');a.href=link;a.target='_blank';a.rel='noopener noreferrer';details.append(a);}for(const [k,v] of meta(item,['image','imageUrl','image_url','cover','coverImage','poster','posterUrl','poster_url','thumbnail','thumb','src','images','media','description','synopsis','summary','caption','title','animeTitle','name','englishTitle','pin_url','pinUrl','pin','link','source_url','sourceUrl','url'])){const row=make('p');const strong=make('strong','',k.replace(/[_-]/g,' ')+': ');row.append(strong,document.createTextNode(v));details.append(row);}box.append(details);if(typeof dialog.showModal==='function')dialog.showModal();else dialog.setAttribute('open','');}
+function render(kind,items){const box=el(kind==='anime'?'nexusAnimeResults':'nexusPinterestResults');box.replaceChildren();items.forEach(item=>{const title=string(pick(item,kind==='anime'?['title','animeTitle','name','englishTitle']:['title','name','description']))||(kind==='pinterest'?'View image':'Untitled');const card=make('button','nexusDiscoveryCard');card.type='button';appendImage(card,imageUrl(item),title);const body=make('div','nexusDiscoveryCardBody');if(!(kind==='pinterest'&&Object.keys(item).length===1&&item.image))body.append(make('h3','',title));const fields=kind==='anime'?['genres','genre','rating','score','releaseDate','release_date','year','status']:['creator','author','username','description'];for(const key of fields){if(item[key]!=null){const v=string(item[key]);if(v)body.append(make('p','',v.slice(0,200)));}}card.append(body);card.addEventListener('click',()=>openDetail(kind,item));box.append(card);});}
+async function search(kind){const input=el(kind==='anime'?'nexusAnimeQuery':'nexusPinterestQuery'),status=el(kind==='anime'?'nexusAnimeStatus':'nexusPinterestStatus'),box=el(kind==='anime'?'nexusAnimeResults':'nexusPinterestResults');const query=input.value.trim();if(!query)return;const token=++state[kind+'Request'];status.textContent='Searching…';box.replaceChildren();for(let i=0;i<6;i++)box.append(make('div','nexusDiscoverySkeleton'));const endpoint=kind==='anime'?'https://prexzyapis.com/anime/animekill-search?query=':'https://prexzyapis.com/search/pinterest?q=';try{const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),20000);let response;try{response=await fetch(endpoint+encodeURIComponent(query),{signal:controller.signal,headers:{Accept:'application/json'}});}finally{clearTimeout(timer);}if(!response.ok)throw new Error('API returned HTTP '+response.status);let data;try{data=await response.json();}catch{throw new Error('API did not return valid JSON');}if(token!==state[kind+'Request'])return;if(data&&typeof data==='object'&&(data.success===false||data.status===false||data.error)){throw new Error(string(data.message||data.error)||'API reported an error');}const items=kind==='pinterest'&&Array.isArray(data?.data)&&data.data.every(v=>typeof v==='string')?data.data.filter(validUrl).map(image=>({image})):extract(data,kind);state[kind]=items;render(kind,items);status.textContent=items.length?items.length+' result'+(items.length===1?'':'s')+' found. Select a result for details.':'No results found. Try another search term.';}catch(err){if(token!==state[kind+'Request'])return;box.replaceChildren();status.textContent='Unable to load results: '+(err.name==='AbortError'?'request timed out':err.message)+'. If the service is reachable but browser access is blocked by CORS, the API owner must enable CORS or provide an authorized server-side proxy.';}}
+el('nexusAnimeForm')?.addEventListener('submit',e=>{e.preventDefault();search('anime');});el('nexusPinterestForm')?.addEventListener('submit',e=>{e.preventDefault();search('pinterest');});document.querySelectorAll('[data-nexus-close]').forEach(b=>b.addEventListener('click',()=>el(b.dataset.nexusClose)?.close()));document.querySelectorAll('.nexusDiscoveryDialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d)d.close();}));
+})();
+</script>
 </body>
 </html>
